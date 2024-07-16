@@ -1,0 +1,29 @@
+.wp-block-therosehill-plus-artist-image {
+    position: relative;
+    display: inline-block; /* Adjust as necessary for your layout */
+}
+
+.wp-block-therosehill-plus-artist-image img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.wp-block-therosehill-plus-artist-image .photo-credit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--wp--preset--color--rh-black);
+    color: var(--wp--preset--color--rh-white);
+    padding: 5px;
+    font-size: 12px;
+}
+
+.wp-block-therosehill-plus-artist-image .photo-credit .prefix {
+    opacity: 0.5;
+}
+
+.wp-block-therosehill-plus-artist-image .photo-credit a {
+    color: var(--wp--preset--color--rh-white);
+    text-decoration: none;
+}

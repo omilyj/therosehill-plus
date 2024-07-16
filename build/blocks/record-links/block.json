@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 2,
+  "name": "therosehill-plus/record-links",
+  "title": "Record Listen & Buy Buttons",
+  "category": "widgets",
+  "description": "Adds listen and buy links for a record.",
+  "textdomain": "therosehill-plus",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "bgColor": {
+      "type": "string",
+      "default": "#f87171"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#fff"
+    }
+  },
+  "style": "file:./index.css",
+  "usesContext": [
+    "postId"
+  ]
+}

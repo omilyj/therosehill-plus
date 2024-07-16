@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "therosehill-plus/menu-search",
+    "title": "Menu Search",
+    "category": "widgets",
+    "description": "Adds a search button to the navigation",
+    "keywords": ["navigation search", "menu search"],
+    "version": "1",
+    "textdomain": "therosehill-plus",
+    "editorScript": "file:./index.js",
+    "attributes": {
+        "bgColor": {
+            "type": "string",
+            "default": "#1B1E1D"
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "#fff"
+        },
+        "borderColor": {
+            "type": "string",
+            "default": "#1B1E1D"
+        }
+    },
+    "ancestor": [ "core/navigation" ],
+    "style": "file:./index.css"
+}

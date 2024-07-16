@@ -1,0 +1,11 @@
+.wp-block-therosehill-plus-artist-info .components-spinner {
+    margin: 0 auto;
+}
+
+.wp-block-therosehill-plus-artist-info .artist-about a {
+    font-size: 1.5rem;
+    margin-right: 10px
+}
+.wp-block-therosehill-plus-artist-info .artist-about:not(:first-child) {
+    margin-top: 2rem;
+}

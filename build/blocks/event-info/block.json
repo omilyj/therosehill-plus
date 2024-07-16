@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 2,
+  "name": "therosehill-plus/event-info",
+  "title": "Event Information",
+  "category": "widgets",
+  "description": "Displays: date, time and promoter information.",
+  "textdomain": "therosehill-plus",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "viewScript": "file:./reorder-page.js",
+  "usesContext": [
+    "postId"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 2,
+  "name": "therosehill-plus/residency-date",
+  "title": "Residency Date",
+  "category": "widgets",
+  "description": "Adds the start and end dates of a residency.",
+  "textdomain": "therosehill-plus",
+  "attributes": {
+    "textAlignment": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "usesContext": [
+    "postId"
+  ]
+}

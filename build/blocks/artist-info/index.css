@@ -1,0 +1,16 @@
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/artist-info/main.css ***!
+  \*************************************************************************************************************************************************************************************/
+.wp-block-therosehill-plus-artist-info .components-spinner {
+    margin: 0 auto;
+}
+
+.wp-block-therosehill-plus-artist-info .artist-about a {
+    font-size: 1.5rem;
+    margin-right: 10px
+}
+.wp-block-therosehill-plus-artist-info .artist-about:not(:first-child) {
+    margin-top: 2rem;
+}
+
+/*# sourceMappingURL=index.css.map*/

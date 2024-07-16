@@ -1,0 +1,56 @@
+.wp-block-therosehill-plus-led-sign .led-sign {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-block-therosehill-plus-led-sign .vl-1 {
+    border-left: 5px solid var(--wp--preset--color--rh-black);
+    border-radius: 4px 4px 0 0;
+    margin-left: 20px;
+}
+
+.wp-block-therosehill-plus-led-sign .vl-2 {
+    border-right: 5px solid var(--wp--preset--color--rh-black);
+    border-radius: 4px 4px 0 0;
+    margin-left: 350px;
+}
+
+.wp-block-therosehill-plus-led-sign .scrolling_text {
+    overflow: hidden;
+    display: flex;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    border: 5px solid var(--wp--preset--color--rh-black);
+    border-radius: 3px;
+    background-size: 0.4rem 0.4rem;
+    background-position: 0 0, calc(0.4rem / 2) calc(0.4rem / 2);
+}
+
+.wp-block-therosehill-plus-led-sign .text {
+    font-family: var(--wp--preset--font-family--rh-silkscreen);
+    font-size: var(--wp--preset--font-size--large) !important;
+    text-transform: uppercase;
+    animation: animate_text 60s linear infinite;
+    /* The animation property */
+}
+
+@keyframes animate_text {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.wp-block-therosehill-plus-led-sign .text span {
+    margin: 0 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    .wp-block-therosehill-plus-led-sign .led-sign {width: 100%;}
+    .wp-block-therosehill-plus-led-sign .vl-1 {margin-left: 10%;}
+    .wp-block-therosehill-plus-led-sign .vl-2 {margin-left: 77%;}
+}

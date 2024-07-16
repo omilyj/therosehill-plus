@@ -1,0 +1,18 @@
+{
+    "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+    "apiVersion": 2,
+    "name": "therosehill-plus/artist-name",
+    "title": "Artist Name",
+    "category": "widgets",
+    "description": "Adds an artist's name.",
+    "textdomain": "therosehill-plus",
+    "attributes": {
+        "textAlignment": {
+            "type": "string",
+            "default": "center"
+        }
+    },
+    "editorScript": "file:./index.js",
+    "style": "file:./index.css",
+    "usesContext": ["postId"]
+  }

@@ -1,0 +1,66 @@
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/menu-search/main.css ***!
+  \*************************************************************************************************************************************************************************************/
+.wp-block-therosehill-plus-menu-search button {
+    position: absolute;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-style: none;
+    border-radius: 10rem;
+    cursor: pointer;
+}
+
+/* reset webkit search input browser style */
+.wp-block-therosehill-plus-menu-search input {
+	outline: none;
+}
+.wp-block-therosehill-plus-menu-search input:-webkit-autofill,
+.wp-block-therosehill-plus-menu-search input:-webkit-autofill:hover,
+.wp-block-therosehill-plus-menu-search input:-webkit-autofill:focus,
+.wp-block-therosehill-plus-menu-search input:-webkit-autofill:active { /* Adjust the inset shadow color */
+    box-shadow: 0 0 0 30px var(--wp--preset--color--rh-white) inset !important; /* Adjust the inset shadow color */
+    outline: none; /* Remove outline */
+}
+
+.wp-block-therosehill-plus-menu-search input[type=search] {
+    -moz-appearance: textfield;
+         appearance: textfield;
+	-webkit-appearance: textfield;
+    box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+    font-size: 14px;
+}
+.wp-block-therosehill-plus-menu-search input::-webkit-search-decoration,
+.wp-block-therosehill-plus-menu-search input::-webkit-search-cancel-button {
+	display: none; /* remove the search and cancel icon */
+}
+
+/* search input field */
+.wp-block-therosehill-plus-menu-search input[type=search] {
+    background: var(--wp--preset--color--rh-gray);
+	border: solid 1px var(--wp--preset--color--rh-black);
+	padding: 0 10px 0 45px;
+    height: 34px;
+	width: 60px;
+	border-radius: 10em;
+	transition: all .5s;
+}
+.wp-block-therosehill-plus-menu-search input[type=search]:focus {
+    width: 130px;
+	background-color: var(--wp--preset--color--rh-white);
+}
+
+/* placeholder */
+.wp-block-therosehill-plus-menu-search input:-moz-placeholder {
+	color: #999;
+}
+.wp-block-therosehill-plus-menu-search input::-webkit-input-placeholder {
+	color: #999;
+}
+
+/*# sourceMappingURL=index.css.map*/

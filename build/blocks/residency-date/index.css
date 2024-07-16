@@ -1,0 +1,16 @@
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/residency-date/main.css ***!
+  \****************************************************************************************************************************************************************************************/
+.wp-block-therosehill-plus-residency-date .residency-meta-date .has-text-align-center {
+    text-align: center;
+}
+
+.wp-block-therosehill-plus-residency-date .residency-meta-date .has-text-align-left {
+    text-align: left;
+}
+
+.wp-block-therosehill-plus-residency-date .residency-meta-date .has-text-align-right {
+    text-align: right;
+}
+
+/*# sourceMappingURL=index.css.map*/

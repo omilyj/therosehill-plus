@@ -1,0 +1,48 @@
+{
+    "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+    "apiVersion": 2,
+    "name": "therosehill-plus/record-release-date",
+    "title": "Record Release Date",
+    "category": "widgets",
+    "description": "Adds the release date of a record.",
+    "textdomain": "therosehill-plus",
+    "editorScript": "file:./index.js",
+    "attributes": {
+      "bgColor": {
+          "type": "string",
+          "default": "none"
+      },
+      "textColor": {
+          "type": "string",
+          "default": "#1B1E1D"
+      },
+      "comingSoonBg": {
+        "type": "string",
+        "default": "none"
+      },
+      "comingSoonText": {
+        "type": "string",
+        "default": "#1B1E1D"
+      },
+      "textAlignment": {
+        "type": "string",
+        "default": "center"
+      },
+      "style": {
+        "type": "object",
+        "padding": {
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0"
+        }
+      }
+    },
+    "supports": {
+      "spacing": {
+        "padding": true
+      }
+    },
+    "style": "file:./index.css",
+    "usesContext": ["postId"]
+  }

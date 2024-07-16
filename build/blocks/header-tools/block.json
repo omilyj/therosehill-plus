@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "therosehill-plus/header-tools",
+  "title": "Header Tools",
+  "category": "text",
+  "description": "Adds a header toolbar that contains an authentication link",
+  "keywords": [],
+  "version": "1",
+  "textdomain": "therosehill-plus",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "showAuth": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "style": "file:./index.css"
+}

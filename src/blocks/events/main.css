@@ -1,0 +1,453 @@
+/* FILTERS */
+
+.wp-block-therosehill-plus-events .event-filters {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.wp-block-therosehill-plus-events .event-filters form>* {
+    display: inline-flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.wp-block-therosehill-plus-events .event-filters form select,
+.wp-block-therosehill-plus-events .event-filters form input,
+.wp-block-therosehill-plus-events .event-filters form button {
+    height: 40px;
+    border: 1px solid rgba(27, 30, 29, 0.3);
+    background-color: var(--wp--preset--color--rh-gray);
+    box-sizing: border-box;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.wp-block-therosehill-plus-events .event-filters form select,
+.wp-block-therosehill-plus-events .event-filters form input {
+    flex-grow: 1;
+    border-radius: 4px 0 0 4px;
+}
+
+.wp-block-therosehill-plus-events .event-filters form .select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.wp-block-therosehill-plus-events .event-filters form .select-wrapper::after {
+    content: '↓';
+    position: absolute;
+    right: 10px;
+    top: 45%;
+    transform: translateY(-45%);
+    pointer-events: none;
+}
+
+.wp-block-therosehill-plus-events .event-filters form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px;
+}
+
+.wp-block-therosehill-plus-events .event-filters form select:hover,
+.wp-block-therosehill-plus-events .event-filters form select.filled,
+.wp-block-therosehill-plus-events .event-filters form input.filled {
+    background-color: var(--wp--preset--color--rh-blue);
+}
+
+.wp-block-therosehill-plus-events .event-filters form .clear-field:hover,
+.wp-block-therosehill-plus-events .event-filters form button[type="reset"]:hover {
+    background-color: #bcbcbc;
+}
+
+.wp-block-therosehill-plus-events .event-filters form select:focus,
+.wp-block-therosehill-plus-events .event-filters form input:focus {
+    outline: none;
+    border: 1px solid var(--wp--preset--color--rh-black);
+}
+
+.wp-block-therosehill-plus-events .event-filters form .clear-field {
+    right: 0;
+    top: 0;
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+}
+
+.wp-block-therosehill-plus-events .event-filters form button {
+    cursor: pointer;
+}
+
+.wp-block-therosehill-plus-events .event-filters form button[type="submit"] {
+    background-color: var(--wp--preset--color--rh-black);
+    color: var(--wp--preset--color--rh-white);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.wp-block-therosehill-plus-events .event-filters form button[type="reset"] {
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+/* EVENT VIEWS */
+
+.wp-block-therosehill-plus-events .event-view {
+    width: fit-content;
+    display: flex;
+    border: 1px solid var(--wp--preset--color--rh-black);
+    background-color: var(--wp--preset--color--rh-gray);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0;
+    /* Removes space between */
+}
+
+.wp-block-therosehill-plus-events .event-view .grid-view,
+.wp-block-therosehill-plus-events .event-view .list-view {
+    flex: 1;
+    padding: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.wp-block-therosehill-plus-events .event-view span.active {
+    background-color: var(--wp--preset--color--rh-black);
+    color: var(--wp--preset--color--rh-white);
+    transition: 0.3s ease-in-out;
+}
+
+/* EVENT LISTINGS */
+
+.wp-block-therosehill-plus-events .event-listings:not(.minimal-view-active) .single-post {
+    border: 1px solid var(--wp--preset--color--rh-black);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.wp-block-therosehill-plus-events .event-listings .single-post a {
+    text-decoration: none;
+}
+
+.wp-block-therosehill-plus-events .event-listings .single-post-image {
+    position: relative;
+}
+
+.wp-block-therosehill-plus-events .event-listings .single-post-image img {
+    object-fit: cover;
+}
+
+.wp-block-therosehill-plus-events .event-listings .single-post-image .event-type {
+    position: absolute;
+    background-color: var(--wp--preset--color--rh-blue);
+    border: 1px solid var(--wp--preset--color--rh-black);
+    border-left: none;
+    bottom: 10px;
+    left: 0;
+    padding: 5px 5px 5px 10px;
+    font-size: 14px;
+}
+
+.wp-block-therosehill-plus-events .event-listings:not(.minimal-view-active) .single-post-detail .promoter {
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.wp-block-therosehill-plus-events .event-listings:not(.minimal-view-active) .single-post-detail h2 {
+    line-height: 2rem;
+    margin-top: 0;
+}
+
+.wp-block-therosehill-plus-events .event-listings:not(.minimal-view-active) .single-post-detail .event-extras span {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: fit-content;
+    border: 1px solid var(--wp--preset--color--rh-black);
+    padding: 8px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.wp-block-therosehill-plus-events .event-listings:not(.minimal-view-active) .single-post-detail .event-extras .tickets {
+    background-color: var(--wp--preset--color--rh-yellow);
+}
+
+.wp-block-therosehill-plus-events .event-listings .single-post-detail .event-extras .bi {
+    margin-right: 10px;
+}
+
+.wp-block-therosehill-plus-events .event-listings .single-post-detail .event-extras .button {
+    padding: 1rem;
+    display: block;
+    background-color: var(--wp--preset--color--rh-black);
+    color: var(--wp--preset--color--rh-white);
+    text-align: center;
+    border-radius: 4px;
+}
+
+/* LIST VIEW */
+
+.wp-block-therosehill-plus-events .event-listings.list-view-active .single-post {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 1.5rem;
+}
+
+.wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail .event-content {
+    padding: 2rem;
+}
+
+.wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail .event-content .excerpt {
+    margin-bottom: 0;
+}
+
+.wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail .event-extras {
+    border-left: 1px dashed var(--wp--preset--color--rh-black);
+    padding: 2rem;
+}
+
+/* GRID VIEW */
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active.cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active.cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active.cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active .single-post-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active .single-post-detail h2 {
+    margin-bottom: 0;
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active .single-post-detail {
+    padding: 2rem;
+}
+
+/* Editor Styles */
+.wp-block-therosehill-plus-events .event-listings.grid-view-active[data-type="therosehill-plus/events"] {
+    display: inherit;
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active[data-type="therosehill-plus/events"] .block-editor-block-list__layout {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active[data-type="therosehill-plus/events"].cols-2 .block-editor-block-list__layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active[data-type="therosehill-plus/events"].cols-3 .block-editor-block-list__layout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wp-block-therosehill-plus-events .event-listings.grid-view-active[data-type="therosehill-plus/events"].cols-4 .block-editor-block-list__layout {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+/* End of Editor Styles */
+
+/* MINIMAL VIEW */
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active h3 {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-family: var(--wp--preset--font-family--rh-anonymous-pro);
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #7C7D7C;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post:not(:first-child) {
+    margin-top: 0.5rem;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail {
+    border-left: 5px solid var(--wp--preset--color--rh-black);
+    background: linear-gradient(to right, var(--wp--preset--color--rh-black) 50%, var(--wp--preset--color--rh-darker-green) 50%);
+    background-size: 200% 100%;
+    background-position: bottom right;
+    transition: all .7s ease-out;
+    padding: 1rem;
+    line-height: 1.25rem;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail:hover {
+    background-color: var(--wp--preset--color--rh-black);
+    background-position: bottom left;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail h2 {
+    font-family: var(--wp--preset--font-family--rh-anonymous-pro);
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail .event-extras span,
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail .promoter {
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail .event-extras span {
+    align-items: center;
+    display: inline-flex;
+    margin-right: 5px;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail .promoter {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail span,
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail h2,
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail .promoter {
+    transition: color .7s ease-out;
+}
+
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail:hover span,
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail:hover h2,
+.wp-block-therosehill-plus-events .event-listings.minimal-view-active .single-post-detail:hover .promoter {
+    color: var(--wp--preset--color--rh-white);
+}
+
+@media only screen and (min-width: 992px) {
+    .wp-block-therosehill-plus-events .event-filters #search-toggle {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .wp-block-therosehill-plus-events .event-filters #search-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: var(--wp--preset--color--rh-blue);
+        border: 1px solid var(--wp--preset--color--rh-black);
+        border-radius: 4px;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters #search-toggle,
+    .wp-block-therosehill-plus-events .event-filters form select,
+    .wp-block-therosehill-plus-events .event-filters form input,
+    .wp-block-therosehill-plus-events .event-filters form button {
+        height: 50px;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters #search-toggle .bi {
+        margin-left: 0.5rem;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters #search-toggle.open {
+        border-radius: 4px 4px 0 0;
+        border-bottom: none;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters #event-search-form {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters #search-toggle.open+#event-search-form {
+        max-height: 500px;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters {
+        flex-direction: column;
+        gap: 0rem;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters form .input-wrapper {
+        border-radius: 0;
+        margin-top: 0.5rem;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters #search-toggle,
+    .wp-block-therosehill-plus-events .event-filters form .input-wrapper,
+    .wp-block-therosehill-plus-events .event-filters form .select-wrapper,
+    .wp-block-therosehill-plus-events .event-filters form .button-wrapper,
+    .wp-block-therosehill-plus-events .event-filters form select,
+    .wp-block-therosehill-plus-events .event-view {
+        width: 100%;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters form .button-wrapper {
+        display: flex;
+        margin-top: 0.5rem;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters form button[type="submit"] {
+        flex: 2;
+    }
+
+    .wp-block-therosehill-plus-events .event-filters form button[type="reset"] {
+        flex: 1;
+    }
+
+    .wp-block-therosehill-plus-events .event-listings.grid-view-active,
+    .wp-block-therosehill-plus-events .event-listings.grid-view-active.cols-2,
+    .wp-block-therosehill-plus-events .event-listings.grid-view-active.cols-3,
+    .wp-block-therosehill-plus-events .event-listings.grid-view-active.cols-4 {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .wp-block-therosehill-plus-events .event-listings.list-view-active .single-post {
+        grid-template-columns: none;
+    }
+
+    .wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-image,
+    .wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail .event-content .excerpt {
+        display: none;
+    }
+
+    .wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail {
+        display: block;
+    }
+
+    .wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail .event-content {
+        padding-bottom: 0;
+    }
+
+    .wp-block-therosehill-plus-events .event-listings.list-view-active .single-post-detail .event-extras {
+        border: none;
+        padding-top: 0;
+    }
+
+}

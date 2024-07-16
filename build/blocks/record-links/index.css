@@ -1,0 +1,47 @@
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/record-links/main.css ***!
+  \**************************************************************************************************************************************************************************************/
+.wp-block-therosehill-plus-record-links {
+    width: 100%;
+}
+
+.wp-block-therosehill-plus-record-links .record-meta-links {
+    display: flex;
+}
+
+.wp-block-therosehill-plus-record-links .record-meta-links .button,
+.wp-block-therosehill-plus-record-links .links-not-available {
+    flex: 1;
+}
+
+.wp-block-therosehill-plus-record-links .record-meta-links a {
+    padding: 15px 5px 15px 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.wp-block-therosehill-plus-record-links .record-button-icon {
+    padding-right: 5px;
+}
+.wp-block-therosehill-plus-record-links .record-meta-links .button-space {
+    margin-right: 10px;
+    display: inline-block;
+}
+.wp-block-therosehill-plus-record-links .links-not-available {
+    text-align: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .wp-block-therosehill-plus-record-links .record-meta-links a {
+        display: block;
+    }
+
+    .wp-block-therosehill-plus-record-links .record-meta-links .button-space {
+        margin-bottom: 5px;
+    }
+}
+
+/*# sourceMappingURL=index.css.map*/

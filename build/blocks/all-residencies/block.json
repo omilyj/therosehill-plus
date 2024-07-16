@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 2,
+  "name": "therosehill-plus/all-residencies",
+  "title": "All Residencies",
+  "category": "widgets",
+  "description": "Adds all the artist's residencies at The Rose Hill.",
+  "textdomain": "therosehill-plus",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "usesContext": [
+    "postId"
+  ]
+}

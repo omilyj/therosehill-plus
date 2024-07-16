@@ -1,0 +1,23 @@
+.wp-block-therosehill-plus-artist-name {
+    font-weight: bold;
+}
+
+.wp-block-therosehill-plus-artist-name .prefix {
+    color: #7c7d7c;
+}
+
+.wp-block-therosehill-plus-artist-name p {
+    margin: 0px;
+}
+
+.wp-block-therosehill-plus-artist-name p .has-text-align-center {
+    text-align: center;
+}
+
+.wp-block-therosehill-plus-artist-name p .has-text-align-left {
+    text-align: left;
+}
+
+.wp-block-therosehill-plus-artist-name p .has-text-align-right {
+    text-align: right;
+}

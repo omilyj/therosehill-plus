@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 2,
+  "name": "therosehill-plus/related-content",
+  "title": "Related Content",
+  "category": "text",
+  "description": "Shows residencies, records and events related to an artist.",
+  "textdomain": "therosehill-plus",
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css"
+}

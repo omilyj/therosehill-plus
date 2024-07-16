@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "therosehill-plus/led-sign",
+  "title": "LED Sign",
+  "category": "text",
+  "description": "Adds an LED sign with a scrolling text effect.",
+  "keywords": [
+    "header",
+    "LED",
+    "sign"
+  ],
+  "version": "1",
+  "textdomain": "therosehill-plus",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "ledText": {
+      "type": "string"
+    },
+    "gradientOne": {
+      "type": "string",
+      "default": "#EEC61F"
+    },
+    "gradientTwo": {
+      "type": "string",
+      "default": "#F0C114"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#1B1E1D"
+    },
+    "align": {
+      "type": "string",
+      "default": "center"
+    }
+  },
+  "supports": {
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "ariaLabel": true,
+    "align": true
+  },
+  "style": "file:./index.css"
+}

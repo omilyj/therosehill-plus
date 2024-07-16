@@ -1,0 +1,61 @@
+<?php
+
+// Resident Admin Page
+function rhp_resident_post_type_columns($columns) {
+    unset($columns['categories']);
+    unset($columns['tags']);
+
+    $columns['cb'] = '<input type="checkbox" />';
+
+    $reorderColumns = array(
+        'cb' => $columns['cb'], // Add checkbox column at the beginning
+        'title' => $columns['title'],
+        'artist_name' => __('Artist', 'therosehill-plus'),
+        'residency_start_date' => __('Residency Start Date', 'therosehill-plus'),
+        'residency_end_date' => __('Residency End Date', 'therosehill-plus'),
+        'date' => $columns['date']
+    );
+
+    return $reorderColumns;
+}
+
+function rhp_resident_custom_column_content($column, $postID) {
+    switch ($column) {
+        case 'cb':
+            echo '<input type="checkbox" name="post[]" value="' . esc_attr($postID) . '" />';
+            break;
+        case 'artist_name':
+            $terms = get_the_terms($postID, 'artist');
+            if (!empty($terms) && !is_wp_error($terms)) {
+                $artists = array();
+                foreach ($terms as $term) {
+                    $artist_name = esc_html($term->name);
+                    $term_id = $term->term_id;
+                    $edit_url = admin_url("term.php?taxonomy=artist&tag_ID=$term_id&post_type=resident&wp_http_referer=" . urlencode($_SERVER['REQUEST_URI']));
+                    $artists[] = '<a href="' . esc_url($edit_url) . '">' . $artist_name . '</a>';
+                }
+                echo implode(', ', $artists);
+            } else {
+                echo '-';
+            }
+            break;
+
+        case 'residency_start_date':
+            $start_date = get_post_meta($postID, 'residency_start_date', true);
+            if (!empty($start_date)) {
+                echo date('d/m/Y', strtotime($start_date));
+            } else {
+                echo '-';
+            }
+            break;
+
+        case 'residency_end_date':
+            $end_date = get_post_meta($postID, 'residency_end_date', true);
+            if (!empty($end_date)) {
+                echo date('d/m/Y', strtotime($end_date));
+            } else {
+                echo '-';
+            }
+            break;
+    }
+}

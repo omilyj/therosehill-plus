@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+    "apiVersion": 2,
+    "name": "therosehill-plus/other-record-releases",
+    "title": "Other Record Releases",
+    "category": "widgets",
+    "description": "Adds other artist's Rose Hill Record releases.",
+    "textdomain": "therosehill-plus",
+    "editorScript": "file:./index.js",
+    "style": "file:./index.css",
+    "usesContext": ["postId"]
+  }

@@ -1,0 +1,35 @@
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/artist-image/main.css ***!
+  \**************************************************************************************************************************************************************************************/
+.wp-block-therosehill-plus-artist-image {
+    position: relative;
+    display: inline-block; /* Adjust as necessary for your layout */
+}
+
+.wp-block-therosehill-plus-artist-image img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.wp-block-therosehill-plus-artist-image .photo-credit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--wp--preset--color--rh-black);
+    color: var(--wp--preset--color--rh-white);
+    padding: 5px;
+    font-size: 12px;
+}
+
+.wp-block-therosehill-plus-artist-image .photo-credit .prefix {
+    opacity: 0.5;
+}
+
+.wp-block-therosehill-plus-artist-image .photo-credit a {
+    color: var(--wp--preset--color--rh-white);
+    text-decoration: none;
+}
+
+/*# sourceMappingURL=index.css.map*/

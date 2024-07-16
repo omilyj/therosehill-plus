@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 2,
+  "name": "therosehill-plus/events",
+  "title": "Events",
+  "category": "widgets",
+  "description": "Adds a block for events",
+  "textdomain": "therosehill-plus",
+  "attributes": {
+    "count": {
+      "type": "number",
+      "default": 20
+    },
+    "promoters": {
+      "type": "array",
+      "default": []
+    },
+    "eventTypes": {
+      "type": "array",
+      "default": []
+    },
+    "excerptLength": {
+      "type": "number",
+      "default": "55"
+    },
+    "eventView": {
+      "type": "string",
+      "default": "grid"
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "hideShowFilter": {
+      "type": "boolean",
+      "default": "true"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "viewScript": "file:./event-view.js",
+  "script": "file:./event-search.js"
+}
