@@ -23,17 +23,27 @@ function rhp_save_post_event($postID) {
 
     // Sanitize and save fixed metadata
     $bookingType = sanitize_text_field($_POST['event_booking_type'] ?? '');
-    update_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''));
-    update_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''));
+    add_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''), true);
+    add_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''), true);
     update_post_meta($postID, 'event_start_time', sanitize_text_field($_POST['event_start_time'] ?? ''));
     update_post_meta($postID, 'event_end_time', sanitize_text_field($_POST['event_end_time'] ?? ''));
     $isDuplicated = get_post_meta($postID, 'event_duplicated', true);
-    if (!$isDuplicated) {
-        if (isset($_POST['event_recurrence']) && $_POST['event_recurrence'] === 'yes' && absint($_POST['event_recurrence_amount']) > 0) {
+    var_dump($isDuplicated);
+    var_dump((bool)$isDuplicated);
+    var_dump((bool) (isset($_POST['event_recurrence']) && $_POST['event_recurrence'] === 'yes'));
+    // die('htensoagpc.r,');
+    if ($isDuplicated) 
+    {
+        update_post_meta($postID, 'event_recurrence', 'no');
+    } else {
+        var_dump('handle recurrence');
+        $recurrenceAmount = absint($_POST['event_recurrence_amount']);
+        var_dump($recurrenceAmount);
+        var_dump($recurrenceAmount > 0);
+        if (isset($_POST['event_recurrence']) && $_POST['event_recurrence'] === 'yes' && $recurrenceAmount > 0) {
             update_post_meta($postID, 'event_recurrence_interval', sanitize_text_field($_POST['event_recurrence_interval']));
             update_post_meta($postID, 'event_recurrence_day', sanitize_text_field($_POST['event_recurrence_day']));
             update_post_meta($postID, 'event_recurrence_time_month', sanitize_text_field($_POST['event_recurrence_time_month']));
-            $recurrenceAmount = absint($_POST['event_recurrence_amount']);
             update_post_meta($postID, 'event_recurrence_amount', $recurrenceAmount);
 
             define('DOING_EVENT_DUPLICATION', true); // Set the duplication flag
@@ -41,9 +51,7 @@ function rhp_save_post_event($postID) {
             update_post_meta($postID, 'event_duplicated', 'yes');
             define('DOING_EVENT_DUPLICATION', false); // Unset the duplication flag
         }
-    } else {
-        update_post_meta($postID, 'event_recurrence', 'no');
-    }
+    } 
     update_post_meta($postID, 'event_booking_type', $bookingType);
 
     // Clear all potentially conflicting meta data first
@@ -87,6 +95,11 @@ function rhp_save_post_event($postID) {
 }
 
 function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
+  print("make duplicates");
+  var_dump($postID);
+  var_dump($recurrenceAmount);
+  // return;
+  
     $startDate = get_post_meta($postID, 'event_start_date', true);
     $endDate = get_post_meta($postID, 'event_end_date', true);
     $recurrenceInterval = get_post_meta($postID, 'event_recurrence_interval', true);
@@ -95,7 +108,11 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
 
     $currentDate = new DateTime($startDate);
 
-    for ($i = 0; $i < $recurrenceAmount; $i++) {
+    for ($i = 1; $i < $recurrenceAmount; $i++) {
+
+        print("recurrence: ".$i);
+        // die();
+
         if ($recurrenceInterval === 'monthly') {
             if ($i > 0) {
                 $currentDate->modify('first day of next month');
@@ -109,15 +126,21 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
             }
         }
 
+        // print(' startDate: '); var_dump($startDate);
+        // print(' currentDate: '); var_dump($currentDate->format('Y-m-d'));
+        // die();
+
         $newPost = [
             'post_type'    => 'event',
             'post_title'   => get_the_title($postID),
             'post_content' => get_post_field('post_content', $postID),
             'post_status'  => 'publish',
             'post_author'  => get_post_field('post_author', $postID),
+            'meta_input' => ['event_duplicated' => 'yes'],
         ];
 
         $newPostID = wp_insert_post($newPost);
+        var_dump($newPostID);
         if ($newPostID) {
             $meta_keys = get_post_custom_keys($postID);
             foreach ($meta_keys as $meta_key) {
@@ -128,7 +151,10 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
 
             // Set the new dates
             $newStartDate = $currentDate->format('Y-m-d');
+            var_dump($newStartDate);
+            var_dump(get_post_meta($newPostID, 'event_start_date', true));
             update_post_meta($newPostID, 'event_start_date', $newStartDate);
+            var_dump(get_post_meta($newPostID, 'event_start_date', true));
             if ($endDate) {
                 $currentEndDate = new DateTime($endDate);
                 if ($recurrenceInterval === 'monthly') {
@@ -142,11 +168,16 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
                 update_post_meta($newPostID, 'event_end_date', $newEndDate);
             }
 
+            // $newPostName = wp_unique_post_slug(get_post_field('post_name', $postID) . '-' . ($i + 1), $newPostID, 'publish', 'event', 0);
+            $newPostName = get_post_field('post_name', $postID) . '-' . ($i + 1);
+            var_dump($newPostName);
             // Update the slug to make it unique
-            wp_update_post([
+            $myreturn = wp_update_post([
                 'ID'        => $newPostID,
-                'post_name' => wp_unique_post_slug(get_post_field('post_name', $postID) . '-' . ($i + 1), $newPostID, 'publish', 'event', 0)
+                'post_name' => $newPostName,
             ]);
+            var_dump($myreturn);
+            var_dump(get_post_meta($newPostID, 'event_start_date', true));
         }
     }
 }
