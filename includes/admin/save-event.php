@@ -23,8 +23,8 @@ function rhp_save_post_event($postID) {
 
     // Sanitize and save fixed metadata
     $bookingType = sanitize_text_field($_POST['event_booking_type'] ?? '');
-    update_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''));
-    update_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''));
+    add_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''), true);
+    add_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''), true);
     update_post_meta($postID, 'event_start_time', sanitize_text_field($_POST['event_start_time'] ?? ''));
     update_post_meta($postID, 'event_end_time', sanitize_text_field($_POST['event_end_time'] ?? ''));
     $isDuplicated = get_post_meta($postID, 'event_duplicated', true);
