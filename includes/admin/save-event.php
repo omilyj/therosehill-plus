@@ -115,6 +115,7 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
             'post_content' => get_post_field('post_content', $postID),
             'post_status'  => 'publish',
             'post_author'  => get_post_field('post_author', $postID),
+            'meta_input' => ['event_duplicated' => 'yes'],
         ];
 
         $newPostID = wp_insert_post($newPost);
