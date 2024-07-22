@@ -95,7 +95,7 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
 
     $currentDate = new DateTime($startDate);
 
-    for ($i = 0; $i < $recurrenceAmount; $i++) {
+    for ($i = 1; $i < $recurrenceAmount; $i++) {
         if ($recurrenceInterval === 'monthly') {
             if ($i > 0) {
                 $currentDate->modify('first day of next month');
