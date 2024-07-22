@@ -41,7 +41,7 @@ add_action('init', 'rhp_label_post_type');
 add_action('init', 'rhp_event_post_type');
 add_action('save_post_label', 'rhp_save_post_label');
 add_action('save_post_resident', 'rhp_save_post_resident');
-remove_action('save_post_event', 'rhp_save_post_event');
+add_action('save_post_event', 'rhp_save_post_event');
 add_action('add_meta_boxes', 'rhp_add_residency_date_meta_boxes');
 add_action('add_meta_boxes', 'rhp_add_record_meta_boxes');
 add_action('add_meta_boxes', 'rhp_add_event_meta_boxes');
