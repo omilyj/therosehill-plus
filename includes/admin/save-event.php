@@ -23,8 +23,8 @@ function rhp_save_post_event($postID) {
 
     // Sanitize and save fixed metadata
     $bookingType = sanitize_text_field($_POST['event_booking_type'] ?? '');
-    update_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''));
-    update_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''));
+    add_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''), true);
+    add_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''), true);
     update_post_meta($postID, 'event_start_time', sanitize_text_field($_POST['event_start_time'] ?? ''));
     update_post_meta($postID, 'event_end_time', sanitize_text_field($_POST['event_end_time'] ?? ''));
     $isDuplicated = get_post_meta($postID, 'event_duplicated', true);
@@ -95,7 +95,7 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
 
     $currentDate = new DateTime($startDate);
 
-    for ($i = 0; $i < $recurrenceAmount; $i++) {
+    for ($i = 1; $i < $recurrenceAmount; $i++) {
         if ($recurrenceInterval === 'monthly') {
             if ($i > 0) {
                 $currentDate->modify('first day of next month');
@@ -115,6 +115,7 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
             'post_content' => get_post_field('post_content', $postID),
             'post_status'  => 'publish',
             'post_author'  => get_post_field('post_author', $postID),
+            'meta_input' => ['event_duplicated' => 'yes'],
         ];
 
         $newPostID = wp_insert_post($newPost);
