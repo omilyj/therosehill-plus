@@ -23,8 +23,8 @@ function rhp_save_post_event($postID) {
 
     // Sanitize and save fixed metadata
     $bookingType = sanitize_text_field($_POST['event_booking_type'] ?? '');
-    update_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''));
-    update_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''));
+    add_post_meta($postID, 'event_start_date', sanitize_text_field($_POST['event_start_date'] ?? ''), true);
+    add_post_meta($postID, 'event_end_date', sanitize_text_field($_POST['event_end_date'] ?? ''), true);
     update_post_meta($postID, 'event_start_time', sanitize_text_field($_POST['event_start_time'] ?? ''));
     update_post_meta($postID, 'event_end_time', sanitize_text_field($_POST['event_end_time'] ?? ''));
     $isDuplicated = get_post_meta($postID, 'event_duplicated', true);
@@ -65,8 +65,14 @@ function rhp_save_post_event($postID) {
             update_post_meta($postID, 'event_ticket_full_price', floatval($_POST['event_ticket_full_price'] ?? 0.0));
             update_post_meta($postID, 'event_ticket_conc_price', floatval($_POST['event_ticket_conc_price'] ?? 0.0));
             update_post_meta($postID, 'event_otd_price_inhouse', sanitize_text_field($_POST['event_otd_price_inhouse'] ?? ''));
-            if (get_post_meta($postID, 'event_ticket_product_id', true) === '') {
+            // Check if the product exists or create it
+            $product_id = get_post_meta($postID, 'event_ticket_product_id', true);
+            if ($product_id === '') {
                 rhp_create_event_ticket_product($postID, $bookingType);
+                $product_id = get_post_meta($postID, 'event_ticket_product_id', true); // Update after creation
+            }
+            if (!empty($product_id)) {
+                rhp_update_event_ticket_product($postID, $product_id);
             }
             break;
         case 'external':
@@ -95,7 +101,7 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
 
     $currentDate = new DateTime($startDate);
 
-    for ($i = 0; $i < $recurrenceAmount; $i++) {
+    for ($i = 1; $i < $recurrenceAmount; $i++) {
         if ($recurrenceInterval === 'monthly') {
             if ($i > 0) {
                 $currentDate->modify('first day of next month');
@@ -115,6 +121,7 @@ function rhp_duplicate_recurring_event($postID, $recurrenceAmount) {
             'post_content' => get_post_field('post_content', $postID),
             'post_status'  => 'publish',
             'post_author'  => get_post_field('post_author', $postID),
+            'meta_input' => ['event_duplicated' => 'yes'],
         ];
 
         $newPostID = wp_insert_post($newPost);
@@ -218,6 +225,24 @@ function rhp_create_event_ticket_product($postID, $bookingType) {
         } else {
             error_log('Failed to retrieve product or product is not a variable product with ID ' . $product_id);
         }
+    }
+}
+
+function rhp_update_event_ticket_product($postID, $product_id) {
+    $product = wc_get_product($product_id);
+
+    if ($product instanceof WC_Product_Simple) {
+        // Update simple product price and stock
+        $is_free = get_post_meta($postID, 'event_is_free_inhouse', true) === 'yes';
+        $full_price = floatval(get_post_meta($postID, 'event_ticket_full_price', true));
+        $product->set_regular_price($is_free ? 0 : $full_price);
+        $product->set_stock_quantity($_POST['event_ticket_capacity'] ?? 0); // Update stock quantity
+        $product->save();
+    } elseif ($product instanceof WC_Product_Variable) {
+        // Update existing variations
+        update_product_variations($product, $postID);
+    } else {
+        error_log('Failed to retrieve product or product is not valid with ID ' . $product_id);
     }
 }
 
